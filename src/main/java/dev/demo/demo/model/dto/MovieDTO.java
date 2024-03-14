@@ -1,4 +1,4 @@
-package dev.demo.demo.model;
+package dev.demo.demo.model.dto;
 
 import lombok.Data;
 
@@ -7,14 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class Movie {
-    private long id;
+public class MovieDTO {
     private String imdbId;
     private String title;
     private String trailerLink;
-    private List<String> genres = new ArrayList<>();
     private String poster;
-    private Date releaseDate;
+    private String releasedDate;
     private List<String> backdrops = new ArrayList<>();
     private List<String> reviews = new ArrayList<>();
 }
