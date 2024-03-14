@@ -1,2 +1,11 @@
-package dev.demo.demo.model.dto;public class DeleteMovieDTO {
+package dev.demo.demo.model.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@AllArgsConstructor
+public class DeleteMovieReqDTO {
+    private String imdbId;
 }

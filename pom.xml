@@ -28,6 +28,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>3.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -71,6 +72,11 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>32.1.2-jre</version>
+		</dependency>
 	</dependencies>
 
 	<build>

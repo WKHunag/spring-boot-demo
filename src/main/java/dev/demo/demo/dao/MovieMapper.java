@@ -1,43 +1,27 @@
 package dev.demo.demo.dao;
 
-import dev.demo.demo.model.Backdrop;
-import dev.demo.demo.model.GenreToMovie;
-import dev.demo.demo.model.Movie;
-import dev.demo.demo.model.Review;
+import dev.demo.demo.model.dto.MovieDTO;
+import dev.demo.demo.model.entity.Movie;
 import org.apache.ibatis.annotations.*;
+
 import java.util.List;
-import java.util.Map;
 
 @Mapper
 public interface MovieMapper {
 
-    @Select({"SELECT * FROM movie " +
-            "LEFT JOIN backdrop ON movie.imdbId = backdrop.imdb;"})
-    @Results(id = "movieResult", value = {
-            @Result(property = "id", column = "id"),
-            @Result(property = "imdbId", column = "imdbId"),
-            @Result(property = "title", column = "title"),
-            @Result(property = "trailerLink", column = "trailerLink"),
-            @Result(property = "poster", column = "poster"),
-            @Result(property = "backdrops", column = "imdb", javaType = List.class,
-                many = @Many(select = "getAllBackdropsByImdb")),
-            @Result(property = "reviews", column="imdb", javaType = List.class,
-                many = @Many(select = "getAllReviewsByImdb"))
-    })
-    @MapKey("imdbId")
-    Map<String, Movie> getAllMovies();
+    @Select({"SELECT * FROM movie "})
+    @Results(
+            {@Result(column = "imdb_id", property = "imdbId"),
+                    @Result(column = "trailer_link", property = "trailerLink"),
+                    @Result(column = "released_date", property = "releasedDate")})
+    List<MovieDTO> getAllMovies();
 
-    @Select({"SELECT image_url FROM backdrop WHERE imdb = #{imdb}"})
-    List<String> getAllBackdropsByImdb(String imdb);
+    @Insert({"INSERT INTO movie (imdb_id, title, trailer_link, poster, released_date)"+
+            " VALUES (#{imdbId}, #{title}, #{trailerLink}, #{poster}, #{releasedDate});"})
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    void insertNewMovie(Movie movie);
 
-    @Select({"SELECT content FROM review WHERE imdb = #{imdb}"})
-    List<String> getAllReviewsByImdb(String imdb);
-
-    @Select({"SELECT * FROM genretomovie;"})
-    List<GenreToMovie> getAllGenres();
-
-    @Select({"SELECT movie.* FROM genretomovie " +
-            "LEFT JOIN movie on genretomovie.imdb = movie.imdbId"})
-    List<Movie> getMoviesByGenre();
+    @Delete({"DELETE FROM movie WHERE imdb_id = #{imdbId};"})
+    void deleteMovie(String imdbId);
 
 }
