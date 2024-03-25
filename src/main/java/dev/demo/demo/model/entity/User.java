@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 public class User {
     private Long id;
     private String username;
-    private String password;
+    private String password_hash;
     private String email;
     private Boolean is_active;
     private Boolean is_admin;
