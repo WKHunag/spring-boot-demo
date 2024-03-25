@@ -1,6 +1,6 @@
 package dev.demo.demo.controller;
 
-import dev.demo.demo.model.Content;
+import dev.demo.demo.model.entity.Content;
 import dev.demo.demo.service.ContentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
 package dev.demo.demo.dao;
 
-import dev.demo.demo.model.Content;
+import dev.demo.demo.model.entity.Content;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

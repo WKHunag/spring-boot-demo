@@ -1,7 +1,7 @@
 package dev.demo.demo.service;
 
 import dev.demo.demo.dao.ContentMapper;
-import dev.demo.demo.model.Content;
+import dev.demo.demo.model.entity.Content;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
