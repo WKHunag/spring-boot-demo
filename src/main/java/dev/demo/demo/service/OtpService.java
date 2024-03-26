@@ -4,7 +4,9 @@ import java.time.Duration;
 import java.util.Random;
 
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Service;
 
+@Service
 public class OtpService {
     private final StringRedisTemplate redisTemplate;
     private final int OTP_EXPIRATION_SECONDS = 300; // 5 minutes

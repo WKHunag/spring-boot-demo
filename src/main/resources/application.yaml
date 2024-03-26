@@ -9,3 +9,15 @@ spring:
     redis:
       host: localhost
       port: 6379
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: aazs9872630@gmail.com
+    password: oukm yons gxlp cirb
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
